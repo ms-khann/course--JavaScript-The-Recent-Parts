@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>generators</title>
+</head>
+<body>
+<script>
+function *gen(){
+	yield 1;
+	yield 2;
+	yield 3;
+	yield 4;
+}
+var itr = gen();
+console.log(itr.next());
+console.log(itr.next());
+console.log(itr.next());
+console.log([...gen()]);
+</script>
+</body>
+</html>

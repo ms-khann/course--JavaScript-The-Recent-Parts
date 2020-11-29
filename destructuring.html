@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>destructuring</title>
+</head>
+<body>
+<script>
+	function data(){
+		return [1,[2,3],4,5,6,7,8];
+	}
+
+	var [a,[b,c] = [],,d,e,...f] = tmp = data() || [];
+	// console.log(f);
+
+
+
+	// function dataObject(){
+	// 	return {a:'a',b:'b',c:'c',d:'d',e:'e'};
+	// }
+
+	// --- OBJECT DESTRUCTURIN --
+	// Syntax :- {object_propertie_name : varibale_name = default_value } = {}
+
+ 	var obj = {a:'a',b:'b',c:'c',d:'d',e:'e'};
+	var {a,b,c,d} = obj;
+	console.log(a);
+</script>
+</body>
+</html>

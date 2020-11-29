@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object perameter Destructuring</title>
+</head>
+<body>
+<script>
+	var defaults = {
+					url : 'google.com',
+					course : 'Web devlopement',
+					status : 'in progress',
+					data : {
+							d1:'data1',
+							d2:'data2'
+						   }
+				   } 
+	// function fake({url,course,status} = {} = defaults){
+	// 	return [url,course,status];
+	// }
+
+	function fake(obj = defaults){
+		var {url,course,status = defaults.status, data = {d1 , d2} = {d1: 'd1',d2:'d2'} } = obj;	
+		return [url,course,status,data.d1,data.d2,data];
+	}
+
+	console.log(fake());
+	console.log(fake({url:'frontendMasters.com',course:'JS recent parts',status:'Complete'}));
+	console.log(fake({url:'frontendMasters.com',course:'JS recent parts2'}));
+
+	// console.log(defaults);
+</script>
+</body>
+</html>

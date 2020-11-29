@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array methods</title>
+</head>
+<body>
+<script>
+	var arr = [10,5,20,34,44];
+
+
+	//find() :- Get the value of the first element in the array that has a value of 18 or more: it does'nt change actual arr
+
+	var find_val = arr.find(function(val){
+		return val>=18;
+	});
+	console.log(find_val);		//20
+
+
+	// findIndex() :- Get the index of the first element in the array that has a value of 18 or more. does not change the original array.
+		// Syntax: -
+			// array.findIndex(function(currentValue, index, arr))
+	// Returns the array element index if any of the elements in the array pass the test, otherwise it returns -1
+	var find_val = arr.findIndex(function(val){
+		return val>=18;
+	});
+	console.log(find_val);		//2
+
+
+	// Syntax :-
+		// array.includes(element, start)
+	// The includes() method determines whether an array contains a specified element.
+	// This method returns true if the array contains the element, and false if not.
+	// Note: The includes() method is case sensitive.
+
+	console.log(arr.includes(5));		//true
+	console.log(arr.includes(5,20));	//false
+	console.log(arr.includes(20,1));		//true
+	console.log(arr.includes(34,-2));		//true
+
+
+	var arr2 = [1,[2,3],[ [4,5],[6,7] ],8];
+	// Flat() :- Convart Nested array into single array according to depth. it doesn't chage original array;
+	console.log(arr2.flat(1));		//[1,2,3,[ [4,5],[6,7] ],8]
+	console.log(arr2.flat(2));		//[1,2,3,4,5,6,7,8]
+	console.log(arr2.flat(Infinity));		//[1,2,3,4,5,6,7,8]
+
+
+
+	// flatMap() :-  combination of flat and map method.
+	var arr3 = arr.flatMap(function(value){
+		return [value, value*2];
+	});
+	console.log(arr3);		//[10, 20, 5, 10, 20, 40, 34, 68, 44, 88]
+
+</script>
+</body>
+</html>

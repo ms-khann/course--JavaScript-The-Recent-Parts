@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>iterators</title>
+</head>
+<body>
+<script>
+	var str = 'hello';
+	var arr = [1,2,3,4,5,6];
+
+	var itr1 = str[Symbol.iterator]();
+	var itr2 = arr[Symbol.iterator]();
+	console.log(itr1.next());
+	console.log(itr2.next());
+</script>
+</body>
+</html>

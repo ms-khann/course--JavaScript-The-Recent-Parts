@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tag function</title>
+</head>
+<body>
+<script type="text/javascript">
+	let name = 'sahil';
+	// let str = pName`hello ${name}`;
+	function pName(strings,...values){
+		console.log(strings);
+		console.log(values);
+	}
+
+	name = 'kyle';
+	let twitter = 'giffy';
+	let topic = 'jS RECENT PARTS';
+
+	function upper(str,...val){
+		let uppr_str = '';
+		for (var i = 0; i < str.length; i++) {
+			if (i>0) {
+				uppr_str += String(val[i-1]).toUpperCase();
+			}
+			uppr_str += str[i];
+		}
+		return '';
+	}
+	console.log(
+		upper`Hello ${name} (@${twitter}), welcome to ${topic}!` === "Hello KYLE (@GiFFY), welcome to JS RECENT PARTS!");
+</script>
+</body>
+</html>
