@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>async-await</title>
+</head>
+<body>
+<script>
+	// Note:- an async function returns a promise.
+
+	// async function fun(){
+
+	// 	await setTimeout(function(){
+	// 		console.log('hello');
+	// 	},3000);
+
+	// 	await setTimeout(function(){
+	// 		console.log('hello world');
+	// 	},3000)
+	// 	print1();
+	// 	print2();
+	// }
+
+	// function print1(){
+	// 	console.log('print1');
+	// }
+	// function print2(){
+	// 	console.log('print2');
+	// }
+
+	// var pr = fun();
+	// console.log(pr);
+	// console.log(pr.PromiseState);
+	// console.log(pr.PromiseResult);
+	// console.log('outter');
+
+
+	var data = {
+		barand:'dell',
+		harddisk:'1TB',
+		price:'35000',
+		color:'black'
+	}
+	var fetch_data = fetch('https://jsonplaceholder.typicode.com/posts').then((response) => {return response.json()});
+	var getData = new Promise(function(resolve,reject){
+		setTimeout(function(){
+			resolve(data);
+		},3000);
+	});
+
+	// --- Using Promise ---
+	getData.then(function(data){
+		console.log('data using promise');
+		console.log(data);
+		return data;
+	}).then(function(data){
+		console.log(data.price);
+	}).catch(function(){
+		console.log("somthing went wrong");
+	});
+
+
+	// --- Using Async ---
+	async function getLaptopData(){
+		var res = await getData;
+		return res;
+	}
+	getLaptopData().then(function(res){
+		console.log('data using async');
+		console.log(res);
+	});
+
+
+
+	async function fetchData(){
+		var res = await fetch_data;
+			return res;
+		// res.then(function(result){
+		// });
+	}
+	fetchData().then(function(res){
+		console.log(res);
+	});
+</script>
+</body>
+</html>

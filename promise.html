@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>promise</title>
+</head>
+<body>
+<script>
+
+	// Note :- Promise has all(),allSeteld(),race() methods
+	function fun(){
+		return new Promise(function(resolve,reject){
+			var obj = {a:'1',b:'2'};
+			var error = false;
+			if ( error == false ) {
+				console.log('success');
+				resolve(obj);
+			}
+			else{
+				console.log('error');
+				reject();
+			}
+		});
+	}
+
+	fun().then(function(obj){
+		console.log('good');
+		console.log(obj);
+	}).catch(function(){
+		console.log('try again');
+	});
+</script>
+</body>
+</html>
